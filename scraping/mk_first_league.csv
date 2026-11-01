@@ -110,7 +110,7 @@ Tikves Kavadarci,715082,Oktaj Rakipi,Central Midfield,8,23,2003-07-30,['North Ma
 Tikves Kavadarci,1518499,Wisdom Okere,Attacking Midfield,23,20,2006-10-19,['Nigeria'],175,right,Unknown,2029-06-30,250000
 Tikves Kavadarci,944514,Muhamed Elmas,Attacking Midfield,80,20,2006-01-31,['North Macedonia'],180,left,Makedonija Gjorce Petrov,,100000
 Tikves Kavadarci,1514392,Sudejs Chajani,Attacking Midfield,25,19,2007-06-21,['North Macedonia'],,,FC Shkupi,2031-06-30,25000
-Tikves Kavadarci,1585789,Dejan Siljanoski,,27,19,2007-08-19,['North Macedonia'],,,,,
+Tikves Kavadarci,1585789,Dejan Siljanoski,Midfield,27,19,2007-08-19,['North Macedonia'],,,,,
 Tikves Kavadarci,1136456,Lucianinho,Left Winger,7,21,2005-03-15,['Brazil'],170,right,Guanabara City Futebol Clube U20,2028-06-30,150000
 Tikves Kavadarci,1110469,Gjoko Spasov,Left Winger,17,19,2006-11-28,['North Macedonia'],181,right,Serik Spor,2028-06-30,50000
 Tikves Kavadarci,1110602,N'fanly Sylla,Right Winger,11,21,2005-02-02,['Guinea'],172,right,Dumlupinar TSK,2028-06-30,400000
@@ -136,7 +136,7 @@ Arsimi,845089,Mateo Sofijanoski,Central Midfield,8,22,2004-06-24,['North Macedon
 Arsimi,625650,Markel Goñi,Central Midfield,5,25,2001-06-15,['Spain'],182,right,Achyronas-Onisilos FC,2027-06-30,200000
 Arsimi,871944,Ibrahim Olaosebikan,Attacking Midfield,29,26,2000-04-19,['Nigeria'],185,left,Vardar Skopje,,100000
 Arsimi,66159,Argjent Gafuri,Attacking Midfield,10,38,1988-03-30,"['North Macedonia', 'Albania']",175,left,Voska Sport,,25000
-Arsimi,1379470,Shaban Memeti,,19,20,2006-01-16,['North Macedonia'],,,Bashkimi,,10000
+Arsimi,1379470,Shaban Memeti,Midfield,19,20,2006-01-16,['North Macedonia'],,,Bashkimi,,10000
 Arsimi,542948,Aljbin Ramadani,Left Winger,11,26,2000-10-20,['North Macedonia'],175,right,Voska Sport,,150000
 Arsimi,948529,Lorik Kaba,Right Winger,7,21,2005-03-09,"['North Macedonia', 'Albania']",182,left,Shkendija Tetovo,,125000
 Arsimi,742210,Salvatore Ribaudo,Right Winger,20,22,2004-07-07,['Italy'],174,left,KS Lushnja,,125000
@@ -154,14 +154,14 @@ Bregalnica Stip,1072843,Andrej Velkov,Left-Back,16,20,2006-02-07,['North Macedon
 Bregalnica Stip,680099,Angjelo Nikolovski,Left-Back,3,24,2001-11-10,['North Macedonia'],180,left,Makedonija Gjorce Petrov,,50000
 Bregalnica Stip,433871,Bojan Rajkov,Right-Back,18,28,1998-07-14,['North Macedonia'],181,right,Sileks Kratovo,,125000
 Bregalnica Stip,216985,Stefan Kocev,Right-Back,22,32,1994-02-23,['North Macedonia'],178,right,Shkendija Tetovo,,50000
-Bregalnica Stip,1579256,Filip Chichev,,2,19,2006-12-19,['North Macedonia'],,,,,
+Bregalnica Stip,1579256,Filip Chichev,Defender,2,19,2006-12-19,['North Macedonia'],,,,,
 Bregalnica Stip,670309,Matej Angelov,Defensive Midfield,5,22,2004-07-11,['North Macedonia'],182,right,Rabotnicki Skopje,,300000
 Bregalnica Stip,626801,Ivan Nikolov,Central Midfield,10,24,2002-02-17,['North Macedonia'],180,right,FK Radnik Bijeljina,,300000
 Bregalnica Stip,606944,David Kalpacki,Attacking Midfield,10,26,2000-06-01,['North Macedonia'],176,right,FK Skopje,,100000
 Bregalnica Stip,237815,Kristijan Stojkoski,Attacking Midfield,24,35,1991-09-17,['North Macedonia'],173,left,Tikves Kavadarci,,75000
 Bregalnica Stip,1164028,Darijan Tasev,Attacking Midfield,17,20,2006-08-25,['North Macedonia'],176,right,Bregalnica Stip Youth,,50000
 Bregalnica Stip,1235559,Luka Georgiev,Attacking Midfield,21,22,2004-05-18,['North Macedonia'],176,right,Detonit Plackovica,,25000
-Bregalnica Stip,1579284,Matej Timovski,,16,19,2007-06-18,['North Macedonia'],,,,,
+Bregalnica Stip,1579284,Matej Timovski,Midfield,16,19,2007-06-18,['North Macedonia'],,,,,
 Bregalnica Stip,670318,Ivan Gligorov,Left Winger,11,22,2004-05-12,['North Macedonia'],182,right,Ohrid Lihnidos,,100000
 Bregalnica Stip,1368525,Nathaniel Mascoe Lawrenzo,Left Winger,35,21,2005-02-11,"['Canada', 'Haiti']",,,ETO FC II,,75000
 Bregalnica Stip,922181,Matheus Lemos,Left Winger,13,29,1997-04-24,['Brazil'],178,right,Shkendija Haracine 77,,50000
@@ -179,7 +179,7 @@ Shkendija Haracine 77,355045,Esin Hakaj,Left-Back,13,29,1996-12-06,['Albania'],1
 Shkendija Haracine 77,1579271,Abdulla Jashari,Left-Back,32,18,2008-04-07,['North Macedonia'],,left,,,
 Shkendija Haracine 77,915432,Martin Todorov,Right-Back,3,23,2003-08-11,['North Macedonia'],174,right,Tikves Kavadarci,,200000
 Shkendija Haracine 77,456371,Nikolce Sarkoski,Right-Back,30,32,1994-03-08,['North Macedonia'],179,right,Kozuf Gevgelija,,25000
-Shkendija Haracine 77,1579282,Visar Sula,,32,18,2008-02-21,['North Macedonia'],,,,,
+Shkendija Haracine 77,1579282,Visar Sula,Defender,32,18,2008-02-21,['North Macedonia'],,,,,
 Shkendija Haracine 77,343489,Besir Demiri,Defensive Midfield,10,32,1994-08-01,"['Albania', 'North Macedonia']",178,left,Rabotnicki Skopje,2027-06-30,250000
 Shkendija Haracine 77,944510,Andrej Arizankoski,Defensive Midfield,14,21,2005-05-08,['North Macedonia'],178,right,AP Brera Strumica,,175000
 Shkendija Haracine 77,404364,Enis Fazlagic,Defensive Midfield,22,26,2000-03-27,['North Macedonia'],188,left,KF Vora,,150000
@@ -188,7 +188,7 @@ Shkendija Haracine 77,1268644,Suhejb Rushiti,Defensive Midfield,4,26,2000-10-04,
 Shkendija Haracine 77,510625,Mile Todorov,Central Midfield,21,27,1999-08-20,['North Macedonia'],170,right,AP Brera Strumica,,250000
 Shkendija Haracine 77,702087,Rinor Ajdini,Central Midfield,,26,2000-07-15,['North Macedonia'],179,right,Santa Lucia FC,,
 Shkendija Haracine 77,1140679,Nijaz Jusufi,Central Midfield,77,23,2003-05-13,['North Macedonia'],174,right,Detonit Plackovica,,
-Shkendija Haracine 77,1365605,Bujar Iljazi,,17,26,2000-07-19,['North Macedonia'],,,Belasica Strumica,,
+Shkendija Haracine 77,1365605,Bujar Iljazi,Midfield,17,26,2000-07-19,['North Macedonia'],,,Belasica Strumica,,
 Shkendija Haracine 77,396655,Vildan Kerim,Left Winger,7,32,1994-08-04,['North Macedonia'],176,left,Pelister Bitola,,75000
 Shkendija Haracine 77,944519,Amir Nuhija,Left Winger,8,21,2005-01-25,['North Macedonia'],175,right,Struga Trim & Lum,,75000
 Shkendija Haracine 77,1018727,Fikret Livareka,Left Winger,11,21,2005-09-04,['North Macedonia'],172,right,Osogovo,,50000
@@ -206,16 +206,16 @@ Bashkimi,1072846,Andrej Ljubevski,Centre-Back,19,20,2006-01-31,['North Macedonia
 Bashkimi,888829,Bilal Iseni,Left-Back,3,24,2001-12-06,['North Macedonia'],180,left,Without Club,,75000
 Bashkimi,678320,Mayimona Antonio,Right-Back,11,26,2000-06-17,"['Germany', 'Angola']",180,right,FC Cosmos Koblenz,,75000
 Bashkimi,1019401,Yahaya Fawzi,Right-Back,2,24,2001-11-28,['Nigeria'],180,both,Without Club,,10000
-Bashkimi,1579323,Ljirjon Destani,,18,20,2006-10-15,['North Macedonia'],,,,,
-Bashkimi,1579360,Besir Kurtishi,,77,20,2006-04-29,['North Macedonia'],,,,,
+Bashkimi,1579323,Ljirjon Destani,Defender,18,20,2006-10-15,['North Macedonia'],,,,,
+Bashkimi,1579360,Besir Kurtishi,Defender,77,20,2006-04-29,['North Macedonia'],,,,,
 Bashkimi,1365656,Adis Murati,Defensive Midfield,10,20,2006-05-10,['North Macedonia'],,,Bashkimi Jugend,,150000
 Bashkimi,1059916,Gabriel Yapy Tenlep,Defensive Midfield,4,23,2003-03-10,['Cameroon'],186,right,Without Club,2027-06-30,100000
 Bashkimi,1087308,Mal Januzi,Central Midfield,8,22,2004-05-05,"['North Macedonia', 'Albania']",180,right,KF Egnatia,,50000
 Bashkimi,622728,Andri Stafa,Central Midfield,20,24,2002-02-14,['Albania'],183,left,FC Liria,,50000
 Bashkimi,1287802,Stefan Ristovski,Attacking Midfield,26,20,2005-12-26,['North Macedonia'],176,right,Detonit Plackovica,,75000
-Bashkimi,1438290,Bejzad Limani,,14,18,2008-08-09,['North Macedonia'],,,Bashkimi Jugend,,25000
-Bashkimi,1579264,Erion Salihi,,16,19,2007-09-17,['North Macedonia'],,,,,10000
-Bashkimi,1598200,Claudio Martinez,,17,19,2007-03-15,"['Switzerland', 'Spain']",,,KF KEK-u Kastriot,,10000
+Bashkimi,1438290,Bejzad Limani,Midfield,14,18,2008-08-09,['North Macedonia'],,,Bashkimi Jugend,,25000
+Bashkimi,1579264,Erion Salihi,Midfield,16,19,2007-09-17,['North Macedonia'],,,,,10000
+Bashkimi,1598200,Claudio Martinez,Midfield,17,19,2007-03-15,"['Switzerland', 'Spain']",,,KF KEK-u Kastriot,,10000
 Bashkimi,791694,Luís Ribeiro,Left Winger,7,25,2001-04-16,['Portugal'],171,both,FC Shkupi,,250000
 Bashkimi,1365660,Ensar Saiti,Left Winger,25,18,2007-12-04,['North Macedonia'],,,Bashkimi Jugend,,25000
 Bashkimi,1597970,Elias Ghanim,Left Winger,,24,2002-06-02,['Iraq'],,,Without Club,,
@@ -234,7 +234,7 @@ FK Skopje,924852,Dimitrij Poposki,Left-Back,70,23,2002-11-10,['North Macedonia']
 FK Skopje,874929,Fisnik Saliu,Left-Back,29,24,2002-05-16,['North Macedonia'],180,left,KF Kika FC,,
 FK Skopje,1018728,Davor Serafimov,Right-Back,15,21,2005-03-03,"['North Macedonia', 'Slovenia']",184,right,Ohrid Lihnidos,,75000
 FK Skopje,133893,Vladica Brdarovski,Right-Back,19,36,1990-02-07,['North Macedonia'],183,right,Without Club,,10000
-FK Skopje,1579298,Mihail Nikolov,,14,20,2006-03-19,['North Macedonia'],,,,,
+FK Skopje,1579298,Mihail Nikolov,Defender,14,20,2006-03-19,['North Macedonia'],,,,,
 FK Skopje,553243,Kristijan Nikolovski,Defensive Midfield,20,29,1997-07-20,['North Macedonia'],176,right,Vardar Skopje,,75000
 FK Skopje,769649,Nemanja Vlajkovic,Defensive Midfield,99,22,2003-11-15,['Serbia'],,,FK Vlasina Vlasotince,,75000
 FK Skopje,580826,Tomce Grozdanovski,Defensive Midfield,21,26,2000-03-14,['North Macedonia'],178,right,Pelister Bitola,,50000
@@ -242,8 +242,8 @@ FK Skopje,570788,Ali Adem,Defensive Midfield,31,26,2000-06-01,['North Macedonia'
 FK Skopje,1028351,Gorjan Cvetkov,Central Midfield,8,21,2005-04-28,['North Macedonia'],174,right,Vardar Skopje,,25000
 FK Skopje,1014606,Toma Georgievski,Central Midfield,5,19,2007-02-26,"['North Macedonia', 'France']",186,,Castelfidardo Calcio,,
 FK Skopje,1028344,Darko Sekovski,Attacking Midfield,16,20,2006-02-20,['North Macedonia'],177,right,Career break,,50000
-FK Skopje,1365627,Slavko Ristoski,,17,19,2007-04-26,['North Macedonia'],,,FK Skopje Youth,,
-FK Skopje,1579452,Harbin Tusha,,30,19,2007-07-10,['North Macedonia'],,,,,
+FK Skopje,1365627,Slavko Ristoski,Midfield,17,19,2007-04-26,['North Macedonia'],,,FK Skopje Youth,,
+FK Skopje,1579452,Harbin Tusha,Midfield,30,19,2007-07-10,['North Macedonia'],,,,,
 FK Skopje,581902,Antonio Bozinoski,Left Winger,7,26,2000-01-16,['North Macedonia'],177,right,Without Club,,75000
 FK Skopje,1268592,Vasko Papaliski,Left Winger,10,17,2009-03-08,['North Macedonia'],178,left,FK Skopje Youth,,25000
 FK Skopje,1015981,Aleksej Slavkov,Left Winger,19,21,2005-08-26,['North Macedonia'],177,right,Makedonija Gjorce Petrov,,10000
