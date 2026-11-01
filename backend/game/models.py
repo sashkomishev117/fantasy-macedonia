@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from .scoring import calculate_points
 
 # Create your models here.
 
@@ -50,4 +51,45 @@ class SquadSlot(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["team", "player"], name="unique_player_per_team")
         ]
-    
+
+class Round(models.Model):
+    number = models.PositiveSmallIntegerField(unique=True)
+    deadline = models.DateTimeField()
+    is_finished = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["number"]
+
+    def __str__(self):
+        return f"Round {self.number}"
+
+class PlayerRoundStats(models.Model):
+    round = models.ForeignKey(Round, on_delete=models.CASCADE, related_name="stats")
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="round_stats")
+    minutes = models.PositiveSmallIntegerField(default = 0)
+    goals = models.PositiveSmallIntegerField(default = 0)
+    assists = models.PositiveSmallIntegerField(default = 0)
+    goals_conceded = models.PositiveSmallIntegerField(default = 0)
+    yellow_cards = models.PositiveSmallIntegerField(default = 0)
+    red_card = models.BooleanField(default = False)
+    points = models.IntegerField(default = 0, editable=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["round", "player"], name="unique_player_per_round")
+        ]
+
+    def save(self, *args, **kwargs):
+        self.points = calculate_points(
+            self.player.position,
+            self.minutes,
+            self.goals,
+            self.assists,
+            self.goals_conceded,
+            self.yellow_cards,
+            self.red_card,
+        )
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.player} in {self.round}: {self.points} points"
