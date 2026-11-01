@@ -1,87 +1,120 @@
 # FFM: Fantasy Football Macedonia
 
-A fantasy football web game built on the real teams and players of the
-Macedonian First League (Prva Makedonska Fudbalska Liga).
-
-## Why
-
-The goal is to get more people watching Macedonian football and to keep
-improving the game over time. Fantasy games give fans a reason to follow every
-match, including the ones they would otherwise skip.
+A fantasy football game built on the real teams and players of the Macedonian
+First League (Prva Makedonska Fudbalska Liga). The goal is to give fans a reason
+to follow every match and to keep improving the game over time.
 
 ## Status
 
-Early development. So far:
+Early development. The data pipeline and the game backend work end to end;
+there is no frontend yet.
 
-- [x] Player and team data scraped from Transfermarkt (253 players, 10 clubs, 2026/27 season)
-- [ ] Game design and rules
-- [ ] Backend and database
-- [ ] Web frontend
-- [ ] Match results and points scoring
+- [x] Player and team data scraped from Transfermarkt (253 players, 10 clubs, 2026/27)
+- [x] Player prices (MKD) computed from past league performance
+- [x] Django backend: players, teams, accounts, squads, rounds and scoring
+- [x] Squad rules validated and tested
+- [ ] Freeze squads at the round deadline
+- [ ] Transfers (free transfer per round, penalty for extras)
+- [ ] Bench substitutions
+- [ ] Leaderboard endpoint
+- [ ] Real match data (instead of typing stats into the admin)
+- [ ] Web frontend (responsive, phone-first)
 - [ ] Deployment
+- [ ] Native iOS and Android apps
 
-## How it works
+## Game rules (v1)
 
-<!-- TODO: describe the game in a few lines. For example: how many players
-a user picks, the budget or constraints, how points are scored. -->
+**Squad:** 15 players: 2 goalkeepers, 5 defenders, 5 midfielders, 3 forwards.
+At most 3 players from the same club.
+
+**Budget:** 700,000 MKD. Each player has a price between 20,000 and 100,000 MKD.
+
+**Lineup:** 11 starters and 4 on the bench. Exactly 1 goalkeeper, at least
+3 defenders, 2 midfielders and 1 forward start. The captain must be a starter
+and scores double.
+
+**Points per match:**
+
+| Event | Points |
+|---|---|
+| Played 1 to 59 minutes | 1 |
+| Played 60+ minutes | 2 |
+| Goal (GK / DEF) | 6 |
+| Goal (MID) | 5 |
+| Goal (FWD) | 4 |
+| Assist | 3 |
+| Clean sheet, 60+ minutes (GK / DEF) | 4 |
+| Clean sheet, 60+ minutes (MID) | 1 |
+| Every 2 goals conceded (GK / DEF) | -1 |
+| Yellow card | -1 |
+| Red card | -3 |
+
+Saves are not scored because the data source does not provide them.
+
+## How prices work
+
+Prices are based on how many fantasy points a player is expected to score, not
+on Transfermarkt's market value. The pipeline uses Macedonian First League
+results from the last five seasons (recent seasons count more), converts them
+to points per 90 minutes with the rules above, and pulls players with few
+minutes toward the average for their position. Players with no league history
+get a below-average estimate. Details are in
+[`scraping/README.md`](scraping/README.md).
 
 ## Project structure
 
 ```
 fantasy-macedonia/
-├── scraping/          Data collection scripts and the scraped dataset
-│   ├── my_scrape.py
-│   ├── check.py
-│   ├── normalize_positions.py
-│   ├── mk_first_league.csv
-│   └── README.md      Details about the scraper and the data
+├── scraping/    Data collection, price model and the datasets (Python)
+├── backend/     Django + Django REST Framework API (Python)
 └── README.md
 ```
 
-<!-- TODO: add the app folders (frontend, backend, ...) as they are created. -->
-
-## Data
-
-Team and player data comes from Transfermarkt through the `transfermarkt-api`
-Python package. The dataset (`scraping/mk_first_league.csv`) has one row per
-player with team, position, age, nationality and market value. Positions are
-grouped into Goalkeeper, Defender, Midfielder and Forward for the game.
-
-See [`scraping/README.md`](scraping/README.md) for how the data is collected,
-known gaps (some youth players have missing fields) and how to refresh it.
-
-## Getting started
-
-Scraping environment (requires Python 3.12 or 3.13, not 3.14):
-
-```bash
-cd scraping
-python3.13 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python my_scrape.py
-```
-
-<!-- TODO: add setup and run instructions for the web app. -->
+- [`scraping/README.md`](scraping/README.md): how the data is collected and how prices are computed
+- [`backend/README.md`](backend/README.md): setup, API endpoints, models and tests
 
 ## Tech stack
 
-<!-- TODO: fill in. For example: frontend, backend, database, hosting. -->
+- **Backend:** Django 6 and Django REST Framework, token authentication, SQLite for development
+- **Data:** the `transfermarkt-api` Python package (needs Python 3.12 or 3.13)
+- **Planned frontend:** a responsive React web app (installable as a PWA), then a native app with Expo that uses the same API
+
+## Getting started
+
+The two Python parts have separate virtual environments. Set up the backend
+first, since it only needs the CSV files that are already in the repo:
+
+```bash
+cd backend
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py import_players
+python manage.py import_prices
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+See [`backend/README.md`](backend/README.md) for the API and
+[`scraping/README.md`](scraping/README.md) to refresh the data.
 
 ## Roadmap
 
-- Decide on the scoring system and squad rules
-- Load the player data into a database, using the Transfermarkt player id as the key
-- Build the team selection and leaderboard pages
-- Add a way to update match results and player points after each round
-- Refresh squad data regularly as transfers happen
+1. Freeze every squad at the round deadline so later changes cannot affect past points
+2. Leaderboard endpoint and transfers
+3. Bench substitutions
+4. Automatic match data loading
+5. React frontend, then deployment (Docker, PostgreSQL, HTTPS, CI)
+6. Native apps
 
 ## Data source and legal note
 
-Player data is scraped from Transfermarkt for personal and development use.
-Transfermarkt's terms restrict automated scraping, so requests are rate-limited
-and data is saved locally instead of being fetched repeatedly. Check the terms
-and consider the licensing of the data before launching the game publicly.
+Player data comes from Transfermarkt through an unofficial package, for personal
+and development use. Transfermarkt's terms restrict automated scraping, so
+requests are rate-limited and results are saved locally instead of being
+fetched repeatedly. Check the terms and the licensing of the data before
+launching the game publicly.
 
 ## Author
 
