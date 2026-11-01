@@ -22,9 +22,9 @@ def freeze_round(round_):
             )
             saved += 1
 
-        round_.is_frozen = True
-        round_.save(update_fields=["is_frozen"])
-        return saved
+    round_.is_frozen = True
+    round_.save(update_fields=["is_frozen"])
+    return saved
 
 def freeze_due_rounds(now=None):
     now = now or timezone.now()

@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
 
-from . import squad_views, views
+from . import leaderboard_views, squad_views, views
 
 urlpatterns = [
     path("teams/", views.TeamList.as_view()),
@@ -10,4 +10,5 @@ urlpatterns = [
     path("register/", squad_views.RegisterView.as_view()),
     path("login/", obtain_auth_token),
     path("squad/", squad_views.SquadView.as_view()),
+    path("leaderboard/", leaderboard_views.LeaderboardView.as_view()),
 ]

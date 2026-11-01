@@ -61,9 +61,11 @@ class SquadView(APIView):
         }
 
     def get(self, request):
+        freeze_due_rounds()
         return Response(self.render(self.get_team(request.user)))
 
     def put(self, request):
+        freeze_due_rounds()          # snapshot any round whose deadline passed, before changing anything
         team = self.get_team(request.user)
         ser = SquadInputSerializer(data=request.data)
         ser.is_valid(raise_exception=True)
