@@ -56,6 +56,7 @@ class Round(models.Model):
     number = models.PositiveSmallIntegerField(unique=True)
     deadline = models.DateTimeField()
     is_finished = models.BooleanField(default=False)
+    is_frozen = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["number"]
@@ -93,3 +94,21 @@ class PlayerRoundStats(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.round}: {self.points} points"
+
+class RoundSquad(models.Model):
+    team = models.ForeignKey(FantasyTeam, on_delete=models.CASCADE, related_name="round_squads")
+    round = models.ForeignKey(Round, on_delete=models.CASCADE, related_name="squads")
+    captain = models.ForeignKey(Player, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["team", "round"], name="unique_squad_per_round")
+        ]
+
+    def __str__(self):
+        return f"{self.team} in {self.round}"
+
+class RoundSquadSlot(models.Model):
+    squad = models.ForeignKey(RoundSquad, on_delete=models.CASCADE, related_name="slots")
+    player = models.ForeignKey(Player, on_delete=models.PROTECT, related_name="+")
+    is_starter = models.BooleanField(default=False)

@@ -4,6 +4,7 @@ from rest_framework import permissions, serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from .freeze import freeze_due_rounds
 
 from .models import FantasyTeam, Player, SquadSlot
 from .serializers import PlayerSerializer
