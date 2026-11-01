@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -31,3 +32,22 @@ class Player(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.team})"
+
+class FantasyTeam(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="fantasy_team")
+    name = models.CharField(max_length=50)
+    budget = models.PositiveIntegerField(default=700_000)
+    captain = models.ForeignKey(Player, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    def __str__(self):
+        return self.name
+
+class SquadSlot(models.Model):
+    team = models.ForeignKey(FantasyTeam, on_delete=models.CASCADE, related_name="slots")
+    player = models.ForeignKey(Player, on_delete=models.PROTECT, related_name="+")
+    is_starter = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["team", "player"], name="unique_player_per_team")
+        ]
+    
