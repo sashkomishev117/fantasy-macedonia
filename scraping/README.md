@@ -29,7 +29,7 @@ install on Python 3.14, which is the Fedora default.
 cd scraping
 python3.13 -m venv .venv
 source .venv/bin/activate
-pip install transfermarkt-api
+pip install -r requirements.txt
 ```
 
 ## Scripts
@@ -51,7 +51,7 @@ Run the scraper with `python my_scrape.py`.
 - `competition_clubs("MAZ1")` returns the 10 clubs, and `club_players(club.id)`
   returns each squad.
 - Each player is converted with `model_dump(mode="json")`, the club name is
-  added as `team`, and the nationality list is joined into one string.
+  added as `team`. The nationality list is left as-is.
 - There is a 3-second delay between requests to avoid being blocked.
 
 ## Data fixes

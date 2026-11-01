@@ -58,7 +58,7 @@ Scraping environment (requires Python 3.12 or 3.13, not 3.14):
 cd scraping
 python3.13 -m venv .venv
 source .venv/bin/activate
-pip install transfermarkt-api
+pip install -r requirements.txt
 python my_scrape.py
 ```
 
