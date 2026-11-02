@@ -1,0 +1,157 @@
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+body {
+  margin: 0;
+  background-color: #101812;
+  color: #f1f5f1;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #8be35f;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #aab8ad;
+  font-size: 18px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #29352c;
+  margin-bottom: 35px;
+}
+
+.navbar h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.navbar h2 span {
+  color: #8be35f;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #aab8ad;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #8be35f;
+}
+
+/* Center the main content */
+#root {
+  text-align: center;
+}
+
+/* Navigation layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Stats section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 35px auto;
+}
+
+.stat-card {
+  width: 240px;
+  padding: 22px;
+  background: #1b2920;
+  border: 1px solid #293f30;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.stat-card p {
+  color: #aab8ad;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.stat-card h2 {
+  color: #8be35f;
+  font-size: 30px;
+  margin: 0;
+}
+
+.stats + button {
+  background: #8be35f;
+  color: #101812;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.stats + button:hover {
+  background: #a5f27f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px #8be35f33;
+}
+
+.stats + button:active {
+  transform: translateY(0);
+}
+
+.stats + button:disabled {
+  background: #344438;
+  color: #879589;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+@media (max-width: 800px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.selected-players {
+  margin-top: 30px;
+  padding: 20px;
+  background: #18251c;
+  border: 1px solid #2d4032;
+  border-radius: 12px;
+}
+
+.selected-players h2 {
+  margin-top: 0;
+  color: #8be35f;
+}
+
+.selected-players div {
+  padding: 12px 0;
+  border-bottom: 1px solid #2d4032;
+}
+
+.selected-players div:last-child {
+  border-bottom: none;
+}

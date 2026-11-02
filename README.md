@@ -1,88 +1,86 @@
-# FFM: Fantasy Football Macedonia
+# Fantasy Macedonia (FFM)
 
-A fantasy football game built on the real teams and players of the Macedonian
-First League (Prva Makedonska Fudbalska Liga). The goal is to give fans a reason
-to follow every match and to keep improving the game over time.
+Fantasy Macedonia is a fantasy football project based on the Macedonian First League (Prva Makedonska Fudbalska Liga).
 
-## Status
+The project includes a Django REST API, a Python data pipeline and a React frontend currently under development.
 
-Early development. The data pipeline and the game backend work end to end;
-there is no frontend yet.
+## Project Status
 
-- [x] Player and team data scraped from Transfermarkt (253 players, 10 clubs, 2026/27)
-- [x] Player prices (MKD) computed from past league performance
-- [x] Django backend: players, teams, accounts, squads, rounds and scoring
-- [x] Squad rules validated and tested
-- [ ] Freeze squads at the round deadline
-- [ ] Transfers (free transfer per round, penalty for extras)
-- [ ] Bench substitutions
-- [ ] Leaderboard endpoint
-- [ ] Real match data (instead of typing stats into the admin)
-- [ ] Web frontend (responsive, phone-first)
+### Data Pipeline
+- [x] Collect team and player data from Transfermarkt
+- [x] Prepare player and team datasets
+- [x] Calculate estimated fantasy player prices in MKD
+- [x] Export datasets for the backend
+
+### Backend
+- [x] Django and Django REST Framework API
+- [x] Team and player models
+- [x] User registration and token authentication
+- [x] Fantasy squad validation
+- [x] Fantasy scoring logic
+- [x] Automated tests
+
+### Frontend
+- [x] React application created with Vite
+- [x] Dark-themed dashboard
+- [x] Squad selection using React state
+- [x] Squad size and position limits
+- [x] Budget and squad value calculations
+- [ ] Individual player selection from a player market
+- [ ] Starting XI and captain selection
+- [ ] Connect the frontend to the Django API
+- [ ] Authentication and persistent squads
+
+### Future Work
+- [ ] Complete transfers and round management
+- [ ] Automatic match statistics
 - [ ] Deployment
-- [ ] Native iOS and Android apps
+- [ ] Mobile application
 
-## Game rules (v1)
+## Game Rules
 
-**Squad:** 15 players: 2 goalkeepers, 5 defenders, 5 midfielders, 3 forwards.
-At most 3 players from the same club.
+The initial squad rules are:
 
-**Budget:** 700,000 MKD. Each player has a price between 20,000 and 100,000 MKD.
+- **Squad size:** 15 players
+- **Positions:** 2 goalkeepers, 5 defenders, 5 midfielders and 3 forwards
+- **Club limit:** Maximum 3 players from one club
+- **Budget:** 700,000 MKD
+- **Starting lineup:** 11 players, with 4 substitutes
+- **Captain:** Must be in the starting lineup and receives double points
 
-**Lineup:** 11 starters and 4 on the bench. Exactly 1 goalkeeper, at least
-3 defenders, 2 midfielders and 1 forward start. The captain must be a starter
-and scores double.
+The backend contains the squad validation and scoring logic. The frontend is still being developed and currently uses demo player data.
 
-**Points per match:**
+## Project Structure
 
-| Event | Points |
-|---|---|
-| Played 1 to 59 minutes | 1 |
-| Played 60+ minutes | 2 |
-| Goal (GK / DEF) | 6 |
-| Goal (MID) | 5 |
-| Goal (FWD) | 4 |
-| Assist | 3 |
-| Clean sheet, 60+ minutes (GK / DEF) | 4 |
-| Clean sheet, 60+ minutes (MID) | 1 |
-| Every 2 goals conceded (GK / DEF) | -1 |
-| Yellow card | -1 |
-| Red card | -3 |
-
-Saves are not scored because the data source does not provide them.
-
-## How prices work
-
-Prices are based on how many fantasy points a player is expected to score, not
-on Transfermarkt's market value. The pipeline uses Macedonian First League
-results from the last five seasons (recent seasons count more), converts them
-to points per 90 minutes with the rules above, and pulls players with few
-minutes toward the average for their position. Players with no league history
-get a below-average estimate. Details are in
-[`scraping/README.md`](scraping/README.md).
-
-## Project structure
-
-```
+```text
 fantasy-macedonia/
-├── scraping/    Data collection, price model and the datasets (Python)
-├── backend/     Django + Django REST Framework API (Python)
-└── README.md
+├── backend/       Django REST API
+├── scraping/      Player data collection and price calculation
+├── frontend/      React + Vite application
+├── README.md
+└── .gitignore
 ```
 
-- [`scraping/README.md`](scraping/README.md): how the data is collected and how prices are computed
-- [`backend/README.md`](backend/README.md): setup, API endpoints, models and tests
+Additional documentation:
 
-## Tech stack
+- [Backend README](backend/README.md)
+- [Scraping README](scraping/README.md)
+- [Frontend README](frontend/README.md)
 
-- **Backend:** Django 6 and Django REST Framework, token authentication, SQLite for development
-- **Data:** the `transfermarkt-api` Python package (needs Python 3.12 or 3.13)
-- **Planned frontend:** a responsive React web app (installable as a PWA), then a native app with Expo that uses the same API
+## Tech Stack
 
-## Getting started
+| Component | Technologies |
+|---|---|
+| Frontend | React 19, Vite 8, JavaScript, CSS |
+| Backend | Python 3.13, Django 6, Django REST Framework |
+| Data pipeline | Python, transfermarkt-api |
+| Development database | SQLite |
 
-The two Python parts have separate virtual environments. Set up the backend
-first, since it only needs the CSV files that are already in the repo:
+## Getting Started
+
+### 1. Backend
+
+Requires Python 3.13.
 
 ```bash
 cd backend
@@ -96,25 +94,51 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-See [`backend/README.md`](backend/README.md) for the API and
-[`scraping/README.md`](scraping/README.md) to refresh the data.
+The backend runs at `http://127.0.0.1:8000/`.
 
-## Roadmap
+See [backend/README.md](backend/README.md) for API details and tests.
 
-1. Freeze every squad at the round deadline so later changes cannot affect past points
-2. Leaderboard endpoint and transfers
-3. Bench substitutions
-4. Automatic match data loading
-5. React frontend, then deployment (Docker, PostgreSQL, HTTPS, CI)
-6. Native apps
+### 2. Frontend
 
-## Data source and legal note
+Requires Node.js and npm.
 
-Player data comes from Transfermarkt through an unofficial package, for personal
-and development use. Transfermarkt's terms restrict automated scraping, so
-requests are rate-limited and results are saved locally instead of being
-fetched repeatedly. Check the terms and the licensing of the data before
-launching the game publicly.
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Vite prints the local development URL in the terminal, usually `http://localhost:5173/`.
+
+Useful commands:
+
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run preview   # Preview production build
+npm run lint      # Run ESLint
+```
+
+See [frontend/README.md](frontend/README.md) for more details.
+
+### 3. Scraping
+
+The scraping scripts have their own Python environment.
+
+```bash
+cd scraping
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+See [scraping/README.md](scraping/README.md) before running the scripts.
+
+## Data Source
+
+Player and team data is collected from Transfermarkt using an unofficial API package. Automated requests are rate-limited, and generated datasets are stored locally.
+
+This project is under development. Check Transfermarkt's terms and the relevant data licensing requirements before any public release.
 
 ## Author
 
