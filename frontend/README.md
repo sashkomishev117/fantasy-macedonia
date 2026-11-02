@@ -6,19 +6,52 @@ It is built with React 19 and Vite 8.
 
 ## Current Features
 
-- Dark-themed fantasy football dashboard
-- Squad selection using React state
-- Maximum squad size of 15 players
+### Dashboard
+- Dark-themed fantasy football interface
+- Squad overview and statistics
+- Starting XI preview
+
+### Player Market
+- Browse available demo players
+- Search players by name
+- Filter players by position
+- Sort players by name or price
+- Add players to the squad
+- Automatic budget and position-limit validation
+
+### Squad Management
+- Select up to 15 players
 - Position limits:
   - 2 goalkeepers
   - 5 defenders
   - 5 midfielders
   - 3 forwards
-- Remaining budget calculation
-- Total squad value calculation
-- Selected-player list and removal
+- 700,000 MKD starting budget
+- Remaining budget and squad value calculations
+- Interactive football pitch
+- Formation selection:
+  - 3-4-3
+  - 3-5-2
+  - 4-3-3
+  - 4-4-2
+  - 4-5-1
+  - 5-2-3
+  - 5-3-2
+  - 5-4-1
+- Starting XI selection and replacement
+- Captain selection
+- Remove players from the squad
+- Save squad locally using browser localStorage
+- Unsaved changes warning
 
-The current implementation uses demo player data. It is not yet connected to the Django backend.
+## Current Limitations
+
+- The frontend currently uses demo player data.
+- It is not yet connected to the Django REST API.
+- Authentication is not implemented.
+- Squad data is stored locally in the browser rather than on the server.
+- Bench-to-starting XI substitution is still planned.
+- Player statistics and fantasy points are not yet connected to real match data.
 
 ## Requirements
 
@@ -76,9 +109,9 @@ frontend/
 
 ## Planned Work
 
-- Build an interactive player market
-- Allow users to select individual players
-- Implement starting XI and captain selection
-- Connect to the Django REST API
-- Add authentication and persistent squads
+- Implement bench-to-starting XI substitutions
+- Connect the frontend to the Django REST API
+- Add user authentication
+- Implement server-side squad persistence
+- Add live match statistics and fantasy points
 - Improve responsive layouts and styling

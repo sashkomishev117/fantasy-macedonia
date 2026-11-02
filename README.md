@@ -2,7 +2,7 @@
 
 Fantasy Macedonia is a fantasy football project based on the Macedonian First League (Prva Makedonska Fudbalska Liga).
 
-The project includes a Django REST API, a Python data pipeline and a React frontend currently under development.
+The project consists of a Django REST API, a Python data pipeline and a React frontend.
 
 ## Project Status
 
@@ -22,18 +22,24 @@ The project includes a Django REST API, a Python data pipeline and a React front
 
 ### Frontend
 - [x] React application created with Vite
-- [x] Dark-themed dashboard
-- [x] Squad selection using React state
+- [x] Dark-themed fantasy football dashboard
+- [x] Player market with search and position filters
+- [x] Player selection and removal
 - [x] Squad size and position limits
 - [x] Budget and squad value calculations
-- [ ] Individual player selection from a player market
-- [ ] Starting XI and captain selection
+- [x] Starting XI selection and player replacement
+- [x] Formation selection
+- [x] Captain selection
+- [x] Interactive football pitch
+- [x] Local squad saving using browser localStorage
+- [ ] Bench-to-starting XI substitution workflow
 - [ ] Connect the frontend to the Django API
-- [ ] Authentication and persistent squads
+- [ ] Authentication and server-side squad persistence
 
 ### Future Work
 - [ ] Complete transfers and round management
 - [ ] Automatic match statistics
+- [ ] Live fantasy points and rankings
 - [ ] Deployment
 - [ ] Mobile application
 
@@ -48,7 +54,7 @@ The initial squad rules are:
 - **Starting lineup:** 11 players, with 4 substitutes
 - **Captain:** Must be in the starting lineup and receives double points
 
-The backend contains the squad validation and scoring logic. The frontend is still being developed and currently uses demo player data.
+The backend contains squad validation and scoring logic. The frontend currently uses illustrative demo player data and stores the squad locally in the browser.
 
 ## Project Structure
 
